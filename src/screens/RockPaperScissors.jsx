@@ -4,6 +4,15 @@ import Section from '../components/Section';
 
 
 export default class RockPaperScissors extends React.Component {
+
+	componentDidMount() {
+		const isAuthed = localStorage.getItem('authed') === 'true';
+
+		if (!isAuthed) {
+			this.props.history.push('/');
+		}
+	}
+
   render() {
     return (
       <Section
